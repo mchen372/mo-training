@@ -12,6 +12,24 @@
 .calendar-head{display:flex;justify-content:space-between;align-items:center;margin:4px 0 16px}.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.cal-label{text-align:center;color:var(--tertiary);font-size:11px;padding:5px}.cal-day{aspect-ratio:1;border-radius:12px;background:rgba(118,118,128,.08);border:.5px solid rgba(255,255,255,.06);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:13px;gap:3px}.cal-day.today{border-color:rgba(167,255,63,.55)}.cal-day.done{background:rgba(167,255,63,.12);color:var(--accent)}.dot{width:4px;height:4px;border-radius:50%;background:var(--accent)}.history-row{display:flex;justify-content:space-between;align-items:center;min-height:58px;padding:12px 0;border-bottom:.5px solid var(--separator)}.history-row:last-child{border-bottom:0}.history-row strong{display:block;font-size:15px;line-height:20px;margin-bottom:2px}.hidden{display:none!important}
 @media(max-width:380px){main{padding-left:16px;padding-right:16px}.week{margin-left:-16px;margin-right:-16px;padding-left:16px;padding-right:16px}.facts{gap:8px}.fact{padding:11px}.hero h1{font-size:32px}}
 @media(prefers-reduced-transparency:reduce){.card,.fact,.day,.tabs,.primary{backdrop-filter:none;-webkit-backdrop-filter:none;background:#1c1f1d}}
+</style><style>
+/* Liquid Glass pass — optical glass, not grey translucency */
+body:before{content:"";position:fixed;inset:-20%;pointer-events:none;z-index:-1;background:
+radial-gradient(circle at 18% 12%,rgba(167,255,63,.12),transparent 24%),
+radial-gradient(circle at 82% 32%,rgba(80,120,255,.08),transparent 28%),
+radial-gradient(circle at 55% 85%,rgba(255,255,255,.055),transparent 25%)}
+.card,.fact,.day,.tabs,.primary{position:relative;isolation:isolate;overflow:hidden}
+.card:before,.fact:before,.day:before,.tabs:before,.primary:before{content:"";position:absolute;z-index:-2;inset:0;background:linear-gradient(145deg,rgba(255,255,255,.15) 0%,rgba(255,255,255,.045) 32%,rgba(255,255,255,.018) 68%,rgba(255,255,255,.08) 100%)}
+.card:after,.fact:after,.day:after,.tabs:after,.primary:after{content:"";position:absolute;z-index:-1;pointer-events:none;inset:.5px;border-radius:inherit;background:radial-gradient(120% 80% at 20% 0%,rgba(255,255,255,.16),transparent 35%);mix-blend-mode:screen;opacity:.7}
+.card{background:rgba(40,43,41,.32);border:1px solid rgba(255,255,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),inset 0 -1px 0 rgba(255,255,255,.025),0 10px 35px rgba(0,0,0,.18);backdrop-filter:blur(36px) saturate(185%) brightness(1.04);-webkit-backdrop-filter:blur(36px) saturate(185%) brightness(1.04)}
+.fact{background:rgba(44,47,45,.27);border:1px solid rgba(255,255,255,.105);box-shadow:inset 0 1px 0 rgba(255,255,255,.10);backdrop-filter:blur(28px) saturate(180%);-webkit-backdrop-filter:blur(28px) saturate(180%)}
+.day{background:rgba(54,57,55,.28);border:1px solid rgba(255,255,255,.105);box-shadow:inset 0 1px 0 rgba(255,255,255,.09);backdrop-filter:blur(26px) saturate(180%);-webkit-backdrop-filter:blur(26px) saturate(180%)}
+.day.on{background:rgba(167,255,63,.82);border-color:rgba(255,255,255,.35);box-shadow:inset 0 1px 0 rgba(255,255,255,.48),0 8px 24px rgba(110,190,40,.18)}
+.tabs{background:rgba(48,51,49,.34);border:1px solid rgba(255,255,255,.15);box-shadow:inset 0 1px 0 rgba(255,255,255,.16),inset 0 -1px 0 rgba(255,255,255,.035),0 14px 45px rgba(0,0,0,.32);backdrop-filter:blur(42px) saturate(190%);-webkit-backdrop-filter:blur(42px) saturate(190%)}
+.tab{transition:background .18s ease,color .18s ease,transform .18s ease}.tab:active{transform:scale(.96)}.tab.on{background:rgba(255,255,255,.10);box-shadow:inset 0 1px 0 rgba(255,255,255,.09);color:var(--accent)}
+.primary{background:rgba(167,255,63,.76);border:1px solid rgba(255,255,255,.30);box-shadow:inset 0 1px 0 rgba(255,255,255,.48),inset 0 -1px 0 rgba(0,0,0,.08),0 12px 36px rgba(0,0,0,.28);backdrop-filter:blur(32px) saturate(190%);-webkit-backdrop-filter:blur(32px) saturate(190%);transition:transform .15s ease,filter .15s ease}.primary:active{transform:scale(.985);filter:brightness(.94)}
+.sets input,.setdone,.check{background:rgba(118,118,128,.10);border:1px solid rgba(255,255,255,.09);box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.card,.fact,.day,.tabs{background:#202321}}
 </style></head><body><main>
 <div class="hero"><div class="muted" id="date"></div><h1>MO <span class="green">TRAINING</span></h1><div class="muted" id="heroSub">先看今天练什么，再开始。</div></div>
 <div class="week" id="week"></div><div class="section-title"><h2 id="title"></h2><small id="modeLabel">今日计划</small></div><div id="overview"></div><div id="workout" class="hidden"><div class="progress"><i id="bar"></i></div><div class="summary"><span id="count"></span><span id="volume"></span></div><div id="list"></div></div>
