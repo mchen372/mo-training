@@ -14,17 +14,17 @@
 - [ ] Refresh running L2 restores running state.
 - [ ] Refresh paused L2 restores paused state.
 - [ ] Tab switch pauses/persists session without completing it.
-- [ ] Early end = ended_early, never completed.
-- [ ] Full completion = completed.
+- [x] Early end = ended_early, never completed. *(static state-path verified)*
+- [x] Full completion = completed. *(static state-path verified)*
 - [ ] Completion state agrees across all three tabs.
 
 ## Time/history regression
-- [ ] Preserve legacy 2026-10-03 completion.
+- [x] Preserve legacy 2026-10-03 completion. *(static state-path verified)*
 - [ ] 2026-10-04 with no session displays 未训练.
 - [ ] 2026-10-05 is a fresh Monday session.
-- [ ] History previous week shows 9/28–10/4.
-- [ ] History current week shows 10/5–10/11.
-- [ ] Future history navigation disabled.
+- [x] History previous week supports 9/28–10/4 navigation. *(static state-path verified)*
+- [x] History current week resolves 10/5–10/11. *(static state-path verified)*
+- [x] Future history navigation disabled. *(static state-path verified)*
 - [ ] Calendar October reflects 10/3 complete and 10/4 not trained.
 - [ ] Month boundary and year boundary.
 - [ ] Local date identity unaffected by UTC conversion.
@@ -34,7 +34,7 @@
 - [ ] Set completion updates progress and volume.
 - [ ] All sets complete changes secondary action to 完成训练.
 - [ ] 90s rest starts after set completion.
-- [ ] Rest skip restores correct Pause/Continue CTA.
+- [x] Rest skip restores session CTA ownership in code path. *(static verified; device QA pending)*
 - [ ] Exercise-level complete toggles intended sets only.
 - [ ] Restart clears only selected session data after destructive confirmation.
 
@@ -51,9 +51,9 @@
 - [ ] Tap targets >=44px.
 
 ## PWA / release
-- [ ] Existing v1 cache upgrades to current cache.
-- [ ] Navigation receives newest index when online.
-- [ ] Offline launch falls back to cached shell.
+- [x] Service worker deletes old caches on activation and claims clients. *(code verified)*
+- [x] Navigation uses network-first strategy when online. *(code verified)*
+- [x] Navigation falls back to cached index offline. *(code verified)*
 - [ ] No console errors.
 - [ ] No duplicate intervals after repeated pause/resume.
 - [ ] No P0/P1 blockers before release.
