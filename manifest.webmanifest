@@ -1,1 +1,19 @@
-{"name":"MO Training","short_name":"MO Training","start_url":"./","display":"standalone","background_color":"#090b0a","theme_color":"#090b0a","description":"Mo 的个性化增肌训练记录"}
+{
+  "name": "Mo Training",
+  "short_name": "Mo Training",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#090b0a",
+  "theme_color": "#090b0a",
+  "description": "个性化增肌训练、训练记录与渐进超负荷助手",
+  "categories": [
+    "fitness",
+    "health",
+    "lifestyle"
+  ],
+  "lang": "zh-CN",
+  "dir": "ltr"
+}
