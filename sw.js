@@ -1,4 +1,4 @@
-const CACHE="mo-training-v26";
+const CACHE="mo-training-v27";
 const CORE=["./","./index.html","./manifest.webmanifest"];
 
 self.addEventListener("install",event=>{
