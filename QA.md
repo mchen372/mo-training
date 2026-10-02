@@ -103,3 +103,18 @@
 - [ ] Verify cold offline launch after one successful online load on physical iPhone/PWA.
 - [ ] Verify update banner → immediate update → single reload on physical iPhone/PWA.
 - [ ] Verify VoiceOver order/labels and hardware-keyboard focus behavior on physical iPhone/iPad.
+
+
+## Release audit — static gate
+- [x] Session timer updates only its timer text instead of rebuilding the CTA DOM every second.
+- [x] Re-tapping the already selected top tab is a no-op and does not add history entries.
+- [x] Modal/sheet presentation makes the underlying app shell inert while open.
+- [x] App-status banner respects focused Workout safe-area hierarchy.
+- [x] Reduced-motion rules are defined once and cover route transitions.
+- [x] Storage writes from Workout UI remain behind SetStore.
+- [x] Session lifecycle writes remain behind transitionSession for primary flows.
+- [x] Offline/update UX remains present after UI/performance polish.
+- [ ] Physical-device gate: iPhone Safari fresh load, long workout scroll, keyboard entry, rotate/resize, background/foreground.
+- [ ] Installed-PWA gate: cold launch, offline launch, update activation, safe areas, kill/relaunch session recovery.
+- [ ] Accessibility gate: VoiceOver labels/order, modal isolation, Dynamic Type stress test.
+- [ ] Release blocker gate: no console errors and no duplicate timers after repeated route/session cycles.
