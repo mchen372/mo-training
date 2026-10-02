@@ -89,3 +89,17 @@
 - [ ] Verify Safari swipe-back and installed-PWA back behavior on physical iPhone.
 - [ ] Verify repeated Home → Workout → Back → Workout does not duplicate or skip history entries.
 - [ ] Verify History → detail → Back returns to the same week and scroll context on physical iPhone.
+
+
+## Offline / update / accessibility invariants
+- [x] Offline state is surfaced through an aria-live app status banner. *(static verified)*
+- [x] Local workout logging remains available while offline; connectivity restoration triggers update check. *(static verified)*
+- [x] Waiting service worker exposes an explicit “立即更新” action. *(static verified)*
+- [x] Service worker supports explicit SKIP_WAITING and reloads once controller changes. *(static verified)*
+- [x] Confirmation dialog has accessible title/description relationships. *(static verified)*
+- [x] Dialog and history sheet trap keyboard focus while open. *(static verified)*
+- [x] Dialog close restores focus to the invoking control when possible. *(static verified)*
+- [x] Reduced-motion preference disables route/interaction motion. *(static verified)*
+- [ ] Verify cold offline launch after one successful online load on physical iPhone/PWA.
+- [ ] Verify update banner → immediate update → single reload on physical iPhone/PWA.
+- [ ] Verify VoiceOver order/labels and hardware-keyboard focus behavior on physical iPhone/iPad.
