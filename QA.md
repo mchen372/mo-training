@@ -57,3 +57,12 @@
 - [ ] No console errors.
 - [ ] No duplicate intervals after repeated pause/resume.
 - [ ] No P0/P1 blockers before release.
+
+
+## Cross-surface state invariants
+- [x] A date whose persisted terminal status is completed resolves as completed before transient in_progress / paused state. *(static verified)*
+- [x] A date whose legacy/all-set completion is true resolves as completed before stale transient state. *(static verified)*
+- [x] Home primary CTA cannot enter a completed workout. *(static verified)*
+- [x] Stale active-session globals for an already-completed date are cleaned without deleting historical set data. *(static verified)*
+- [x] Home CTA active-session check is bound to the selected ISO date. *(static verified)*
+- [ ] Verify the same completed date renders consistently on physical iPhone across Home, Calendar, History and relaunch.
