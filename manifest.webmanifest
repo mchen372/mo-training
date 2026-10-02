@@ -18,10 +18,10 @@
   "dir": "ltr",
   "icons": [
     {
-      "src": "icon-512.png",
+      "src": "./icon-512.png?v=29",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ]
 }
