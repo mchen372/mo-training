@@ -1,5 +1,5 @@
-const CACHE="mo-training-v29";
-const CORE=["./","./index.html","./manifest.webmanifest","./icon-512.png","./apple-touch-icon.png"];
+const CACHE="mo-training-v30";
+const CORE=["./","./index.html","./manifest.webmanifest","./icon-512.png","./apple-touch-icon-v30.png"];
 
 self.addEventListener("install",event=>{
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)).then(()=>self.skipWaiting()));
