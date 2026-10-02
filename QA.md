@@ -76,3 +76,16 @@
 - [x] Calorie estimation reads workout sets through SetStore. *(static verified)*
 - [x] Workout form binding contains no direct localStorage access. *(static verified)*
 - [ ] Verify keyboard entry, set completion, whole-exercise completion and persistence on physical iPhone.
+
+
+## Navigation / route invariants
+- [x] App route state explicitly carries top-level tab and home/workout screen. *(static verified)*
+- [x] Entering workout pushes a workout route entry. *(static verified)*
+- [x] Workout back action delegates to browser history when a workout route exists. *(static verified)*
+- [x] Browser pop from workout pauses/persists the active session before rendering Home. *(static verified)*
+- [x] Calendar/History tab changes create route entries rather than only mutating DOM. *(static verified)*
+- [x] Opening a history detail creates a detail route entry. *(static verified)*
+- [x] Closing a history detail restores focus to its trigger when possible. *(static verified)*
+- [ ] Verify Safari swipe-back and installed-PWA back behavior on physical iPhone.
+- [ ] Verify repeated Home → Workout → Back → Workout does not duplicate or skip history entries.
+- [ ] Verify History → detail → Back returns to the same week and scroll context on physical iPhone.
