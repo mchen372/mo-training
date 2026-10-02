@@ -118,3 +118,13 @@
 - [ ] Installed-PWA gate: cold launch, offline launch, update activation, safe areas, kill/relaunch session recovery.
 - [ ] Accessibility gate: VoiceOver labels/order, modal isolation, Dynamic Type stress test.
 - [ ] Release blocker gate: no console errors and no duplicate timers after repeated route/session cycles.
+
+
+## App lifecycle invariants
+- [x] pagehide persists active elapsed time into the canonical date-bound session record. *(static verified)*
+- [x] Lifecycle snapshot resolves the active session date from mo-active-date, not the currently browsed date. *(static verified)*
+- [x] visibilitychange persists elapsed runtime before resetting the foreground timing segment. *(static verified)*
+- [x] BFCache pageshow re-establishes the foreground timer segment without inventing elapsed background time. *(static verified)*
+- [ ] Physical iPhone: start workout → lock screen 2 min → unlock; verify elapsed policy and no double count.
+- [ ] Physical iPhone: start workout → swipe Safari/PWA away → relaunch; verify session + set data survive.
+- [ ] Physical iPhone: background during active rest timer → foreground after deadline; verify timer resolves once.
