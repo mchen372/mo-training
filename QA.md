@@ -66,3 +66,13 @@
 - [x] Stale active-session globals for an already-completed date are cleaned without deleting historical set data. *(static verified)*
 - [x] Home CTA active-session check is bound to the selected ISO date. *(static verified)*
 - [ ] Verify the same completed date renders consistently on physical iPhone across Home, Calendar, History and relaunch.
+
+
+## Storage boundary invariants
+- [x] Workout inputs identify exercise/set coordinates rather than raw localStorage keys. *(static verified)*
+- [x] Weight, reps and RIR mutations go through SetStore.write(). *(static verified)*
+- [x] Single-set and whole-exercise completion mutations go through SetStore.write(). *(static verified)*
+- [x] Previous-performance placeholders read through SetStore. *(static verified)*
+- [x] Calorie estimation reads workout sets through SetStore. *(static verified)*
+- [x] Workout form binding contains no direct localStorage access. *(static verified)*
+- [ ] Verify keyboard entry, set completion, whole-exercise completion and persistence on physical iPhone.
