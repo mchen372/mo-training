@@ -54,3 +54,24 @@ Progress/stat renderers may never mutate primary CTA copy.
 - No hidden destructive transitions.
 - No UI state that cannot be reconstructed from persisted state.
 - No production claim without target-device validation.
+
+
+## Canonical session record v2
+
+New writes use a versioned, date-bound record:
+
+`mo-session-v2-YYYY-MM-DD`
+
+Shape:
+- `schema: 2`
+- `date`
+- `status`
+- `startedAt`
+- `elapsedMs`
+- `calories`
+- `endedAt` when terminal
+- `updatedAt`
+
+`readSession(date)` provides non-destructive migration by falling back to the existing date status/duration/calorie keys when a v2 record does not yet exist. `writeSession(date, patch)` persists the canonical record and temporarily mirrors legacy date keys for backwards compatibility. Existing set-level history is not rewritten or deleted.
+
+Migration rule: legacy data remains readable; new session lifecycle transitions write v2. Once production/device QA proves migration stability, legacy session mirrors can be retired in a later schema release.
