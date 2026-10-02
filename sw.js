@@ -1,4 +1,4 @@
-const CACHE="mo-training-v14";
+const CACHE="mo-training-v15";
 const CORE=["./","./index.html","./manifest.webmanifest"];
 
 self.addEventListener("install",event=>{
@@ -27,4 +27,9 @@ self.addEventListener("fetch",event=>{
       return response;
     })));
   }
+});
+
+
+self.addEventListener("message",event=>{
+  if(event.data&&event.data.type==="SKIP_WAITING")self.skipWaiting();
 });
