@@ -75,3 +75,26 @@ Shape:
 `readSession(date)` provides non-destructive migration by falling back to the existing date status/duration/calorie keys when a v2 record does not yet exist. `writeSession(date, patch)` persists the canonical record and temporarily mirrors legacy date keys for backwards compatibility. Existing set-level history is not rewritten or deleted.
 
 Migration rule: legacy data remains readable; new session lifecycle transitions write v2. Once production/device QA proves migration stability, legacy session mirrors can be retired in a later schema release.
+
+
+## State transition guard
+
+Session lifecycle mutations must go through `transitionSession(date, next, patch)`. Legal transitions are explicitly enumerated:
+- planned → in_progress
+- missed → in_progress
+- in_progress → paused / completed / ended_early
+- paused → in_progress / completed / ended_early
+- completed → in_progress (explicit restart only)
+- ended_early → in_progress (explicit restart only)
+- rest → no training transition
+
+UI event handlers should not directly invent session status values.
+
+## Set storage boundary
+
+Set-level reads/writes now go through `SetStore`:
+- `read(date, exercise, set)`
+- `write(date, exercise, set, patch)`
+- `clearDay(date)`
+
+The current implementation intentionally mirrors the existing `mo3-...` keys so existing training history remains intact. This creates a storage boundary that can later migrate sets into the canonical session document without changing UI/business logic.
